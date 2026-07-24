@@ -359,12 +359,6 @@ function App() {
             Threat Dashboard
           </button>
           <button 
-            className={`tab-link ${activeTab === 'admin' ? 'active' : ''}`}
-            onClick={() => setActiveTab('admin')}
-          >
-            Agent Administration
-          </button>
-          <button 
             className="tab-link tab-pitch"
             onClick={() => setActiveTab('pitch')}
           >
@@ -421,13 +415,13 @@ function App() {
           {/* MIDDLE COLUMN: Terminal */}
           <div className="panel terminal-panel">
             <div className="panel-header">
-              <h3>{activeTab === 'threats' ? 'Runtime Execution Logs' : 'SME Intervention Logs'}</h3>
+              <h3>Runtime Execution Logs</h3>
             </div>
             <div className="terminal-window">
-              {(activeTab === 'threats' ? logs : adminLogs).length === 0 ? (
+              {logs.length === 0 ? (
                 <div className="log-line text-muted">&gt; System initialized. Awaiting processes...</div>
               ) : (
-                (activeTab === 'threats' ? logs : adminLogs).map((log, i) => (
+                logs.map((log, i) => (
                   <div key={i} className="log-line">
                     <span className="timestamp">{new Date().toISOString().split('T')[1].slice(0, -1)}Z</span> <span className="log-msg">{log}</span>
                   </div>
@@ -484,7 +478,6 @@ function App() {
         </div>
 
         {/* BOTTOM SECTIONS */}
-        {activeTab === 'threats' ? (
           <div className="panel data-panel mt-6">
             <div className="panel-header">
               <h3>Active Threat Incidents</h3>
@@ -559,62 +552,6 @@ function App() {
               )}
             </div>
           </div>
-        ) : (
-          <div className="panel data-panel mt-6">
-            <div className="panel-header">
-              <h3>Agent Health & Loop Monitoring</h3>
-            </div>
-            <div className="admin-grid">
-              
-              <div className="admin-col">
-                <span className="data-label" style={{marginBottom:'1rem', display:'block'}}>Architecture Topology</span>
-                <div className="arch-diagram">
-                  <div className="node node-primary">Orchestrator Node</div>
-                  <div className="node-links"></div>
-                  <div className="node-group">
-                    <div className="node node-worker">
-                      Threat Hunter
-                      <div className="sme-tag">SME: SEC-01</div>
-                    </div>
-                    <div className="node node-worker">
-                      Patch Architect
-                      <div className="sme-tag">SME: QA-04</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="admin-col">
-                <span className="data-label" style={{marginBottom:'1rem', display:'block'}}>Logic Drift Metrics (Brain Rot)</span>
-                
-                <div className="metric-bar-container">
-                  <div className="metric-bar-header">
-                    <span>Threat Hunter Agent</span>
-                    <span className="font-mono">{Math.floor(threatHunterRot)}%</span>
-                  </div>
-                  <div className="metric-bar-bg">
-                    <div className="metric-bar-fill" style={{ width: `${threatHunterRot}%`, backgroundColor: getRotColor(threatHunterRot) }}></div>
-                  </div>
-                </div>
-
-                <div className="metric-bar-container mt-4">
-                  <div className="metric-bar-header">
-                    <span>Patch Architect Agent</span>
-                    <span className="font-mono">{Math.floor(patchArchitectRot)}%</span>
-                  </div>
-                  <div className="metric-bar-bg">
-                    <div className="metric-bar-fill" style={{ width: `${patchArchitectRot}%`, backgroundColor: getRotColor(patchArchitectRot) }}></div>
-                  </div>
-                </div>
-                
-                <p className="help-text mt-4">
-                  Agents undergo regular logical drift based on recursive context limitations. SME agents intervene automatically when threshold &gt; 90%.
-                </p>
-              </div>
-
-            </div>
-          </div>
-        )}
       </main>
     </div>
   );
