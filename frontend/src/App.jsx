@@ -95,11 +95,38 @@ function PitchDeck({ onClose }) {
         <section className="slide">
           <div className="slide-inner">
             <h1>Powered by an <em>Elite Tech Stack.</em></h1>
-            <p className="sub" style={{ marginTop: '1.5rem', lineHeight: '2' }}>
-              <strong>Agno</strong> (Multi-Agent Orchestration) · <strong>You.com</strong> (Threat Intelligence)<br/>
-              <strong>LlamaIndex</strong> (Context Engineering) · <strong>Replit</strong> (Execution Sandbox)<br/>
-              <strong>Pica</strong> (Agentic Actions) · <strong>React & FastAPI</strong> (Opsera Engine)
-            </p>
+            <div className="tech-grid">
+              <div className="tech-item">
+                <img src="https://avatars.githubusercontent.com/u/127715456?s=200&v=4" alt="Agno" className="tech-logo" />
+                <span className="tech-name">Agno (Phidata)</span>
+                <span className="tech-role">Multi-Agent Orchestration</span>
+              </div>
+              <div className="tech-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/You.com_logo.svg" alt="You.com" className="tech-logo" />
+                <span className="tech-name">You.com</span>
+                <span className="tech-role">Threat Intelligence</span>
+              </div>
+              <div className="tech-item">
+                <img src="https://global.discourse-cdn.com/business7/uploads/llamaindex/original/1X/a2157a31b4fc6c8e329ebc03e2c65961e69d9551.png" alt="LlamaIndex" className="tech-logo" />
+                <span className="tech-name">LlamaIndex</span>
+                <span className="tech-role">Context Engineering</span>
+              </div>
+              <div className="tech-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Repl.it_logo.svg" alt="Replit" className="tech-logo" />
+                <span className="tech-name">Replit</span>
+                <span className="tech-role">Execution Sandbox</span>
+              </div>
+              <div className="tech-item">
+                <img src="https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" alt="FastAPI" className="tech-logo" />
+                <span className="tech-name">FastAPI & Python</span>
+                <span className="tech-role">Opsera Engine Backend</span>
+              </div>
+              <div className="tech-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" className="tech-logo" />
+                <span className="tech-name">React & Vite</span>
+                <span className="tech-role">Opsera Dashboard</span>
+              </div>
+            </div>
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
