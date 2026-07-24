@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function PitchDeck({ onClose }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 6;
+  const totalSlides = 4;
   const slideRef = useRef(null);
 
   useEffect(() => {
@@ -49,17 +49,6 @@ function PitchDeck({ onClose }) {
       <div className="pitch-hint">Tap or click to advance · left edge to go back</div>
 
       <div className="slides-container" ref={slideRef}>
-        <section className="slide slide-title">
-          <div className="slide-inner">
-            <h1>Opsera Agentic Security</h1>
-            <p className="sub">Agentic DevOps for AI-DLC and SDLC</p>
-          </div>
-          <div className="slide-footer">
-            <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">1 / 6</span>
-          </div>
-        </section>
-
         <section className="slide">
           <div className="slide-inner">
             <h1>Security toolchains are <em>fragmented.</em></h1>
@@ -67,34 +56,13 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">2 / 6</span>
+            <span className="footer-count">1 / 4</span>
           </div>
         </section>
 
         <section className="slide">
           <div className="slide-inner">
-            <h1>We bring <em>Unified Orchestration</em> and Hummingbird AI to patch code <em>at scale.</em></h1>
-          </div>
-          <div className="slide-footer">
-            <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">3 / 6</span>
-          </div>
-        </section>
-
-        <section className="slide">
-          <div className="slide-inner">
-            <h1>Featuring <em>Built-in Governance</em> and <em>Loop Theory</em> oversight.</h1>
-            <p className="sub">Agentic execution with guardrails you can trust.</p>
-          </div>
-          <div className="slide-footer">
-            <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">4 / 6</span>
-          </div>
-        </section>
-
-        <section className="slide">
-          <div className="slide-inner">
-            <h1>Powered by an <em>Elite Tech Stack.</em></h1>
+            <h1 style={{ marginBottom: '3rem' }}><em>Opsera Agentic Security</em></h1>
             <div className="tech-grid">
               <div className="tech-item">
                 <img src="https://avatars.githubusercontent.com/u/127715456?s=200&v=4" alt="Agno" className="tech-logo" />
@@ -102,12 +70,12 @@ function PitchDeck({ onClose }) {
                 <span className="tech-role">Multi-Agent Orchestration</span>
               </div>
               <div className="tech-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/You.com_logo.svg" alt="You.com" className="tech-logo" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/You.com_logo.svg" alt="You.com" className="tech-logo" style={{ background: '#fff', padding: '0.8rem', borderRadius: '12px' }} />
                 <span className="tech-name">You.com</span>
                 <span className="tech-role">Threat Intelligence</span>
               </div>
               <div className="tech-item">
-                <img src="https://global.discourse-cdn.com/business7/uploads/llamaindex/original/1X/a2157a31b4fc6c8e329ebc03e2c65961e69d9551.png" alt="LlamaIndex" className="tech-logo" />
+                <img src="https://global.discourse-cdn.com/business7/uploads/llamaindex/original/1X/a2157a31b4fc6c8e329ebc03e2c65961e69d9551.png" alt="LlamaIndex" className="tech-logo" style={{ background: '#fff', padding: '0.8rem', borderRadius: '12px' }} />
                 <span className="tech-name">LlamaIndex</span>
                 <span className="tech-role">Context Engineering</span>
               </div>
@@ -130,24 +98,32 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">5 / 6</span>
+            <span className="footer-count">2 / 4</span>
           </div>
         </section>
 
         <section className="slide slide-final">
           <div className="slide-inner">
-            <h1>The Team</h1>
             <p className="sub" style={{ fontSize: '1.25rem' }}>
-              <strong style={{ fontSize: '1.5em', color: 'var(--primary)', display: 'block', marginTop: '2rem', lineHeight: '1.1' }}>Narendra Darla</strong>
-              <span style={{ display: 'block', fontSize: '1em', marginTop: '0.5rem', color: 'var(--text-muted)' }}>Founder / Engineer</span>
+              <span style={{ display: 'block', fontSize: '1.5em', marginTop: '0.5rem', color: 'var(--text-muted)' }}>Architected by</span>
+              <strong style={{ fontSize: '4em', color: 'var(--primary)', display: 'block', marginTop: '1.5rem', lineHeight: '1.1' }}>Narendra Darla</strong>
             </p>
+          </div>
+          <div className="slide-footer">
+            <span className="footer-brand">Powered by Opsera</span>
+            <span className="footer-count">3 / 4</span>
+          </div>
+        </section>
+
+        <section className="slide slide-final">
+          <div className="slide-inner">
             <div style={{ marginTop: '3rem' }}>
               <button className="button pulse" onClick={(e) => { e.stopPropagation(); onClose(); }}>Go to Live Demo →</button>
             </div>
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">6 / 6</span>
+            <span className="footer-count">4 / 4</span>
           </div>
         </section>
       </div>
