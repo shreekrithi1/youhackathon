@@ -851,11 +851,13 @@ input:checked + .slider:before { transform: translateX(18px); }
 
 /* TECH STACK LOGOS */
 .tech-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin-top: 3rem;
-  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem 5rem;
+  margin-top: 4rem;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -865,38 +867,31 @@ input:checked + .slider:before { transform: translateX(18px); }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border-light);
-  border-radius: 8px;
   transition: all 0.2s;
 }
 
 .tech-item:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: var(--primary);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px var(--primary-transparent);
 }
 
 .tech-logo {
-  height: 40px;
-  max-width: 120px;
+  height: 120px;
+  max-width: 360px;
   object-fit: contain;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.15));
 }
 
 .tech-name {
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
   color: #fff;
   letter-spacing: 0.05em;
   margin-bottom: 0.25rem;
 }
 
 .tech-role {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
