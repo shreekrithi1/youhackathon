@@ -255,13 +255,13 @@ function App() {
       
       const newDefect = {
         id: newDefectId,
-        cve: "CVE-2024-" + Math.floor(1000 + Math.random() * 9000),
+        cve: "CVE-2026-1024",
         package: "express",
         severity: "High",
         status: "Pending Review",
         rca: "The express library version < 4.19.2 is susceptible to prototype pollution via the query parser.",
         resolution: "Patch Architect recommends upgrading express to version 4.19.2 and migrating any legacy body-parser middleware.",
-        mrLink: `https://github.com/enterprise-org/payment-gateway/pull/${Math.floor(100 + Math.random() * 900)}`
+        mrLink: "https://github.com/shreekrithi1/youhackathon/compare/main...patch/CVE-2026-1024?expand=1"
       };
       
       setDefects(prev => [newDefect, ...prev]);
