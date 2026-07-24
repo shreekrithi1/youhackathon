@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function PitchDeck({ onClose }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 5;
+  const totalSlides = 6;
   const slideRef = useRef(null);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">1 / 5</span>
+            <span className="footer-count">1 / 6</span>
           </div>
         </section>
 
@@ -67,7 +67,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">2 / 5</span>
+            <span className="footer-count">2 / 6</span>
           </div>
         </section>
 
@@ -77,7 +77,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">3 / 5</span>
+            <span className="footer-count">3 / 6</span>
           </div>
         </section>
 
@@ -88,7 +88,22 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">4 / 5</span>
+            <span className="footer-count">4 / 6</span>
+          </div>
+        </section>
+
+        <section className="slide">
+          <div className="slide-inner">
+            <h1>Powered by an <em>Elite Tech Stack.</em></h1>
+            <p className="sub" style={{ marginTop: '1.5rem', lineHeight: '2' }}>
+              <strong>Agno</strong> (Multi-Agent Orchestration) · <strong>You.com</strong> (Threat Intelligence)<br/>
+              <strong>LlamaIndex</strong> (Context Engineering) · <strong>Replit</strong> (Execution Sandbox)<br/>
+              <strong>Pica</strong> (Agentic Actions) · <strong>React & FastAPI</strong> (Opsera Engine)
+            </p>
+          </div>
+          <div className="slide-footer">
+            <span className="footer-brand">Powered by Opsera</span>
+            <span className="footer-count">5 / 6</span>
           </div>
         </section>
 
@@ -105,7 +120,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">5 / 5</span>
+            <span className="footer-count">6 / 6</span>
           </div>
         </section>
       </div>
