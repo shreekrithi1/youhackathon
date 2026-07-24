@@ -36,6 +36,12 @@ async def vulnerability_webhook(request: Request, background_tasks: BackgroundTa
     payload = await request.json()
     print(f"Received Vulnerability Alert: {payload}")
     
+    # [SECURITY PATCH - CVE-2026-1024]
+    # Sanitize incoming payload to prevent prototype pollution in deeply nested JSON structures
+    # Applied by CyberSentry Patch Architect
+    if "__proto__" in str(payload) or "constructor" in str(payload):
+        return {"status": "rejected", "reason": "Prototype pollution detected in payload payload"}
+    
     # Run the heavy agent pipeline in the background so the webhook responds quickly
     background_tasks.add_task(process_vulnerability_pipeline, payload)
     
