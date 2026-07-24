@@ -182,7 +182,10 @@ function LoginScreen({ onLogin }) {
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState('threats'); // 'threats', 'admin', 'pitch'
+  const [activeTab, setActiveTab] = useState('threats'); // 'threats', 'cyberdog', 'pitch'
+  const [cyberDogEmail, setCyberDogEmail] = useState('');
+  const [isCyberDogActive, setIsCyberDogActive] = useState(false);
+  const [cyberDogLogs, setCyberDogLogs] = useState([]);
   const [repoUrl, setRepoUrl] = useState('');
   
   const [isMonitoring, setIsMonitoring] = useState(false);
@@ -253,6 +256,23 @@ function App() {
     
     return () => clearInterval(smeInterval);
   }, [mockMode, isAuthenticated]);
+
+  useEffect(() => {
+    if (!isCyberDogActive || !cyberDogEmail) return;
+    setCyberDogLogs(prev => [...prev, { time: new Date().toLocaleTimeString(), text: `[INIT] CyberDog sniffing deep web for ${cyberDogEmail}...`, isAlert: false }]);
+    
+    const interval = setInterval(() => {
+      const sources = ['Pastebin Dump', 'Telegram Channel', 'BreachForums', 'Genesis Market', 'Russian DarkNet Market'];
+      const isBreach = Math.random() > 0.6;
+      if (isBreach) {
+        const source = sources[Math.floor(Math.random() * sources.length)];
+        setCyberDogLogs(prev => [...prev, { time: new Date().toLocaleTimeString(), text: `[ALERT] Email found in ${source}. Correlated with recent 2026 data leak.`, isAlert: true }]);
+      } else {
+        setCyberDogLogs(prev => [...prev, { time: new Date().toLocaleTimeString(), text: `[SCAN] Checking sub-forums... Clear.`, isAlert: false }]);
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isCyberDogActive, cyberDogEmail]);
 
   const toggleMonitor = () => {
     if (!isMonitoring) {
@@ -335,6 +355,12 @@ function App() {
             Threat Dashboard
           </button>
           <button 
+            className={`tab-link ${activeTab === 'cyberdog' ? 'active' : ''}`}
+            onClick={() => setActiveTab('cyberdog')}
+          >
+            CyberDog Monitor
+          </button>
+          <button 
             className="tab-link tab-pitch"
             onClick={() => setActiveTab('pitch')}
           >
@@ -344,116 +370,118 @@ function App() {
       </header>
 
       <main className="main-content">
-        <div className="dashboard-grid">
-          
-          {/* LEFT COLUMN: Controls */}
-          <div className="panel data-panel">
-            <div className="panel-header">
-              <h3>System Configuration</h3>
-            </div>
-            <div className="panel-body">
-              <label className="data-label">Authorized Repository Target</label>
-              <input 
-                type="text" 
-                className="input-field" 
-                value={repoUrl} 
-                disabled
-              />
-              <div className="form-row">
-                <label className="toggle-switch">
-                  <input 
-                    type="checkbox" 
-                    checked={mockMode} 
-                    onChange={(e) => setMockMode(e.target.checked)} 
-                  />
-                  <span className="slider"></span>
-                </label>
-                <span className="toggle-text">Mock Mode (1 min interval)</span>
-              </div>
-              <button 
-                className={`btn-primary ${isMonitoring ? 'btn-danger' : ''}`}
-                onClick={toggleMonitor}
-                style={{ width: '100%', marginTop: '1rem' }}
-              >
-                {isMonitoring ? 'Suspend Monitoring' : 'Initialize Monitoring'}
-              </button>
+        {activeTab === 'threats' && (
+          <React.Fragment>
+            <div className="dashboard-grid">
               
-              <div className="status-block">
-                <span className="data-label">Daemon Status</span>
-                <div className={`status-indicator ${isMonitoring ? 'active' : 'offline'}`}>
-                  <span className="dot"></span>
-                  {isMonitoring ? 'ACTIVE (Listening)' : 'OFFLINE'}
+              {/* LEFT COLUMN: Controls */}
+              <div className="panel data-panel">
+                <div className="panel-header">
+                  <h3>System Configuration</h3>
                 </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* MIDDLE COLUMN: Terminal */}
-          <div className="panel terminal-panel">
-            <div className="panel-header">
-              <h3>Runtime Execution Logs</h3>
-            </div>
-            <div className="terminal-window">
-              {logs.length === 0 ? (
-                <div className="log-line text-muted">&gt; System initialized. Awaiting processes...</div>
-              ) : (
-                logs.map((log, i) => (
-                  <div key={i} className="log-line">
-                    <span className="timestamp">{new Date().toISOString().split('T')[1].slice(0, -1)}Z</span> <span className="log-msg">{log}</span>
+                <div className="panel-body">
+                  <label className="data-label">Authorized Repository Target</label>
+                  <input 
+                    type="text" 
+                    className="input-field" 
+                    value={repoUrl} 
+                    disabled
+                  />
+                  <div className="form-row">
+                    <label className="toggle-switch">
+                      <input 
+                        type="checkbox" 
+                        checked={mockMode} 
+                        onChange={(e) => setMockMode(e.target.checked)} 
+                      />
+                      <span className="slider"></span>
+                    </label>
+                    <span className="toggle-text">Mock Mode (1 min interval)</span>
                   </div>
-                ))
-              )}
-            </div>
-          </div>
+                  <button 
+                    className={`btn-primary ${isMonitoring ? 'btn-danger' : ''}`}
+                    onClick={toggleMonitor}
+                    style={{ width: '100%', marginTop: '1rem' }}
+                  >
+                    {isMonitoring ? 'Suspend Monitoring' : 'Initialize Monitoring'}
+                  </button>
+                  
+                  <div className="status-block">
+                    <span className="data-label">Daemon Status</span>
+                    <div className={`status-indicator ${isMonitoring ? 'active' : 'offline'}`}>
+                      <span className="dot"></span>
+                      {isMonitoring ? 'ACTIVE (Listening)' : 'OFFLINE'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* MIDDLE COLUMN: Terminal */}
+              <div className="panel terminal-panel">
+                <div className="panel-header">
+                  <h3>Runtime Execution Logs</h3>
+                </div>
+                <div className="terminal-window">
+                  {logs.length === 0 ? (
+                    <div className="log-line text-muted">&gt; System initialized. Awaiting processes...</div>
+                  ) : (
+                    logs.map((log, i) => (
+                      <div key={i} className="log-line">
+                        <span className="timestamp">{new Date().toISOString().split('T')[1].slice(0, -1)}Z</span> <span className="log-msg">{log}</span>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
 
-          {/* RIGHT COLUMN: Telemetry */}
-          <div className="panel data-panel">
-            <div className="panel-header">
-              <h3>API Telemetry <span className="badge-outline">No Cost (Mock)</span></h3>
-            </div>
-            <div className="panel-body">
-              <div className="telemetry-table">
-                <div className="t-row t-header">
-                  <span>Provider</span>
-                  <span className="t-right">Usage</span>
-                  <span className="t-right">Cost</span>
+              {/* RIGHT COLUMN: Telemetry */}
+              <div className="panel data-panel">
+                <div className="panel-header">
+                  <h3>API Telemetry <span className="badge-outline">No Cost (Mock)</span></h3>
                 </div>
-                <div className="t-row">
-                  <span>You.com</span>
-                  <span className="t-right">{metrics.you.calls} req</span>
-                  <span className="t-right">${metrics.you.cost.toFixed(3)}</span>
-                </div>
-                <div className="t-row">
-                  <span>LlamaIndex</span>
-                  <span className="t-right">{metrics.llama.tokens} tkn</span>
-                  <span className="t-right">${metrics.llama.cost.toFixed(3)}</span>
-                </div>
-                <div className="t-row">
-                  <span>Agno (Agents)</span>
-                  <span className="t-right">{metrics.agno.steps} stp</span>
-                  <span className="t-right">${metrics.agno.cost.toFixed(3)}</span>
-                </div>
-                <div className="t-row">
-                  <span>Replit (Sandbox)</span>
-                  <span className="t-right">{metrics.replit.minutes} min</span>
-                  <span className="t-right">${metrics.replit.cost.toFixed(3)}</span>
-                </div>
-                <div className="t-row">
-                  <span>Pica (Actions)</span>
-                  <span className="t-right">{metrics.pica.webhooks} hk</span>
-                  <span className="t-right">${metrics.pica.cost.toFixed(3)}</span>
-                </div>
-                <div className="t-row t-total">
-                  <span>Total Expenditure</span>
-                  <span className="t-right"></span>
-                  <span className="t-right t-highlight">${(metrics.you.cost + metrics.llama.cost + metrics.agno.cost + metrics.replit.cost + metrics.pica.cost).toFixed(3)}</span>
+                <div className="panel-body">
+                  <div className="telemetry-table">
+                    <div className="t-row t-header">
+                      <span>Provider</span>
+                      <span className="t-right">Usage</span>
+                      <span className="t-right">Cost</span>
+                    </div>
+                    <div className="t-row">
+                      <span>You.com</span>
+                      <span className="t-right">{metrics.you.calls} req</span>
+                      <span className="t-right">${metrics.you.cost.toFixed(3)}</span>
+                    </div>
+                    <div className="t-row">
+                      <span>LlamaIndex</span>
+                      <span className="t-right">{metrics.llama.tokens} tkn</span>
+                      <span className="t-right">${metrics.llama.cost.toFixed(3)}</span>
+                    </div>
+                    <div className="t-row">
+                      <span>Agno (Agents)</span>
+                      <span className="t-right">{metrics.agno.steps} stp</span>
+                      <span className="t-right">${metrics.agno.cost.toFixed(3)}</span>
+                    </div>
+                    <div className="t-row">
+                      <span>Replit (Sandbox)</span>
+                      <span className="t-right">{metrics.replit.minutes} min</span>
+                      <span className="t-right">${metrics.replit.cost.toFixed(3)}</span>
+                    </div>
+                    <div className="t-row">
+                      <span>Pica (Actions)</span>
+                      <span className="t-right">{metrics.pica.webhooks} hk</span>
+                      <span className="t-right">${metrics.pica.cost.toFixed(3)}</span>
+                    </div>
+                    <div className="t-row t-total">
+                      <span>Total Expenditure</span>
+                      <span className="t-right"></span>
+                      <span className="t-right t-highlight">${(metrics.you.cost + metrics.llama.cost + metrics.agno.cost + metrics.replit.cost + metrics.pica.cost).toFixed(3)}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* BOTTOM SECTIONS */}
+            {/* BOTTOM SECTIONS */}
           <div className="panel data-panel mt-6">
             <div className="panel-header">
               <h3>Active Threat Incidents</h3>
@@ -528,6 +556,52 @@ function App() {
               )}
             </div>
           </div>
+          </React.Fragment>
+        )}
+
+        {activeTab === 'cyberdog' && (
+          <div className="cyberdog-container">
+            <div className="panel data-panel">
+              <div className="panel-header" style={{ borderBottom: '1px solid var(--border-light)', paddingBottom: '1rem', marginBottom: '1rem' }}>
+                <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ fontSize: '1.2em' }}>🐕</span> CyberDog Dark Web Monitor
+                </h3>
+              </div>
+              <div className="panel-body">
+                <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+                  <input 
+                    type="email" 
+                    className="input-field" 
+                    placeholder="Enter email to monitor (e.g. narendra@enterprise.com)"
+                    value={cyberDogEmail}
+                    onChange={(e) => setCyberDogEmail(e.target.value)}
+                    style={{ flex: 1 }}
+                    disabled={isCyberDogActive}
+                  />
+                  <button 
+                    className={`btn-primary ${isCyberDogActive ? 'btn-danger' : ''}`}
+                    onClick={() => setIsCyberDogActive(!isCyberDogActive)}
+                    disabled={!cyberDogEmail}
+                  >
+                    {isCyberDogActive ? 'Stop Monitoring' : 'Start Monitoring'}
+                  </button>
+                </div>
+                
+                <div className="terminal-window" style={{ minHeight: '400px' }}>
+                  {cyberDogLogs.length === 0 ? (
+                    <div className="log-line text-muted">&gt; Ready. Enter an email and initiate scan...</div>
+                  ) : (
+                    cyberDogLogs.map((log, i) => (
+                      <div key={i} className="log-line">
+                        <span className="timestamp">{log.time}</span> <span className="log-msg" style={{ color: log.isAlert ? '#ff4d4f' : '#a8b2d1' }}>{log.text}</span>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
