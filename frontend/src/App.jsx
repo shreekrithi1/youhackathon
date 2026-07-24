@@ -51,43 +51,43 @@ function PitchDeck({ onClose }) {
       <div className="slides-container" ref={slideRef}>
         <section className="slide slide-title">
           <div className="slide-inner">
-            <h1>CyberSentry</h1>
-            <p className="sub">Autonomous SecOps Threat Patching & Defense Engine</p>
+            <h1>Opsera Agentic Security</h1>
+            <p className="sub">Agentic DevOps for AI-DLC and SDLC</p>
           </div>
           <div className="slide-footer">
-            <span className="footer-brand">CyberSentry</span>
+            <span className="footer-brand">Powered by Opsera</span>
             <span className="footer-count">1 / 5</span>
           </div>
         </section>
 
         <section className="slide">
           <div className="slide-inner">
-            <h1>Security teams drown in <em>10,000+ alerts daily.</em></h1>
-            <p className="sub">80% are false positives. Real zero-days take weeks to patch.</p>
+            <h1>Security toolchains are <em>fragmented.</em></h1>
+            <p className="sub">Engineering Intelligence is lost. Vulnerabilities take weeks to orchestrate.</p>
           </div>
           <div className="slide-footer">
-            <span className="footer-brand">CyberSentry</span>
+            <span className="footer-brand">Powered by Opsera</span>
             <span className="footer-count">2 / 5</span>
           </div>
         </section>
 
         <section className="slide">
           <div className="slide-inner">
-            <h1>We use <em>Multi-Agent AI</em> to detect, plan, and roll out patches in <em>minutes, not weeks.</em></h1>
+            <h1>We bring <em>Unified Orchestration</em> and Hummingbird AI to patch code <em>at scale.</em></h1>
           </div>
           <div className="slide-footer">
-            <span className="footer-brand">CyberSentry</span>
+            <span className="footer-brand">Powered by Opsera</span>
             <span className="footer-count">3 / 5</span>
           </div>
         </section>
 
         <section className="slide">
           <div className="slide-inner">
-            <h1>Featuring <em>Human-in-the-Loop</em> review and <em>Loop Theory Brain Rot</em> monitoring.</h1>
-            <p className="sub">Autonomous execution with guardrails you can trust.</p>
+            <h1>Featuring <em>Built-in Governance</em> and <em>Loop Theory</em> oversight.</h1>
+            <p className="sub">Agentic execution with guardrails you can trust.</p>
           </div>
           <div className="slide-footer">
-            <span className="footer-brand">CyberSentry</span>
+            <span className="footer-brand">Powered by Opsera</span>
             <span className="footer-count">4 / 5</span>
           </div>
         </section>
@@ -96,7 +96,7 @@ function PitchDeck({ onClose }) {
           <div className="slide-inner">
             <h1>The Team</h1>
             <p className="sub" style={{ fontSize: '1.25rem' }}>
-              <strong style={{ fontSize: '1.5em', color: 'var(--accent)', display: 'block', marginTop: '2rem', lineHeight: '1.1' }}>Narendra Darla</strong>
+              <strong style={{ fontSize: '1.5em', color: 'var(--primary)', display: 'block', marginTop: '2rem', lineHeight: '1.1' }}>Narendra Darla</strong>
               <span style={{ display: 'block', fontSize: '1em', marginTop: '0.5rem', color: 'var(--text-muted)' }}>Founder / Engineer</span>
             </p>
             <div style={{ marginTop: '3rem' }}>
@@ -104,7 +104,7 @@ function PitchDeck({ onClose }) {
             </div>
           </div>
           <div className="slide-footer">
-            <span className="footer-brand">CyberSentry</span>
+            <span className="footer-brand">Powered by Opsera</span>
             <span className="footer-count">5 / 5</span>
           </div>
         </section>
@@ -127,8 +127,8 @@ function LoginScreen({ onLogin }) {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1 className="auth-brand">CyberSentry</h1>
-        <p className="auth-subtitle">Autonomous SecOps Defense Platform</p>
+        <h1 className="auth-brand">Opsera</h1>
+        <p className="auth-subtitle">Agentic DevSecOps Orchestrator</p>
         
         <div className="auth-form">
           <label>Target Repository</label>
@@ -307,7 +307,7 @@ function App() {
       <header className="top-nav">
         <div className="brand">
           <div className="brand-logo"></div>
-          <span className="brand-name">CyberSentry Platform</span>
+          <span className="brand-name">Opsera Agentic Security</span>
         </div>
         <div className="nav-tabs">
           <button 
