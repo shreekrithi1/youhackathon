@@ -164,12 +164,12 @@ function PitchDeck({ onClose }) {
             <h1 style={{ marginBottom: '3rem' }}><em>Elite Tech Stack</em></h1>
             <div className="tech-grid" style={{ gap: '3rem', maxWidth: '1000px' }}>
               <div className="tech-item">
-                <img src="/logos/agno.svg" alt="Agno" className="tech-logo" />
+                <img src="/logos/agno.png" alt="Agno" className="tech-logo" />
                 <span className="tech-name">Agno (Phidata)</span>
                 <span className="tech-role">Multi-Agent Orchestrator</span>
               </div>
               <div className="tech-item">
-                <img src="/logos/you.svg" alt="You.com" className="tech-logo" />
+                <img src="/logos/you.png" alt="You.com" className="tech-logo" />
                 <span className="tech-name">You.com API</span>
                 <span className="tech-role">Deep Web Threat Intel</span>
               </div>
@@ -179,7 +179,7 @@ function PitchDeck({ onClose }) {
                 <span className="tech-role">RAG & Context Engineering</span>
               </div>
               <div className="tech-item">
-                <img src="/logos/replit.svg" alt="Replit" className="tech-logo" />
+                <img src="/logos/replit.png" alt="Replit" className="tech-logo" />
                 <span className="tech-name">Replit API</span>
                 <span className="tech-role">Secure Patch Sandbox</span>
               </div>
@@ -189,7 +189,7 @@ function PitchDeck({ onClose }) {
                 <span className="tech-role">Agentic Actions & Webhooks</span>
               </div>
               <div className="tech-item">
-                <img src="/logos/render.svg" alt="Render" className="tech-logo" />
+                <img src="/logos/render.png" alt="Render" className="tech-logo" />
                 <span className="tech-name">Render Platform</span>
                 <span className="tech-role">Cloud Infrastructure</span>
               </div>
