@@ -423,6 +423,12 @@ function App() {
             Security Copilot 🤖
           </button>
           <button 
+            className={`tab-link ${activeTab === 'video' ? 'active' : ''}`}
+            onClick={() => setActiveTab('video')}
+          >
+            Video Demo 🎥
+          </button>
+          <button 
             className="tab-link tab-pitch"
             onClick={() => setActiveTab('pitch')}
           >
@@ -737,6 +743,38 @@ function App() {
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <input type="text" className="input-field" placeholder="Ask AI Copilot (e.g. Analyze AST impact for CVE-2026-1024...)" style={{ flex: 1 }} />
                   <button className="btn-primary">Query Copilot</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'video' && (
+          <div className="video-container">
+            <div className="panel data-panel">
+              <div className="panel-header" style={{ borderBottom: '1px solid var(--border-light)', paddingBottom: '1rem', marginBottom: '1rem' }}>
+                <h3>🎥 CyberSentry Product Demonstration Walkthrough</h3>
+              </div>
+              <div className="panel-body" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <video 
+                  controls 
+                  autoPlay 
+                  muted 
+                  style={{ width: '100%', maxWidth: '900px', borderRadius: '12px', border: '1px solid var(--border-light)', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}
+                >
+                  <source src="/demo_you.mov" type="video/quicktime" />
+                  <source src="/demo_you.mov" type="video/mp4" />
+                  Your browser does not support playing this video.
+                </video>
+                <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+                  <a 
+                    href="/demo_you.mov" 
+                    download="CyberSentry_Demo.mov" 
+                    className="btn-primary"
+                    style={{ textDecoration: 'none', display: 'inline-block' }}
+                  >
+                    ⬇️ Download Full Resolution Recording (demo_you.mov)
+                  </a>
                 </div>
               </div>
             </div>
