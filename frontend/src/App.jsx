@@ -188,6 +188,11 @@ function PitchDeck({ onClose }) {
                 <span className="tech-name">Pica API</span>
                 <span className="tech-role">Agentic Actions & Webhooks</span>
               </div>
+              <div className="tech-item">
+                <img src="/logos/render.svg" alt="Render" className="tech-logo" />
+                <span className="tech-name">Render Platform</span>
+                <span className="tech-role">Cloud Infrastructure</span>
+              </div>
             </div>
           </div>
           <div className="slide-footer">
@@ -551,6 +556,11 @@ function App() {
                       <span>Pica (Actions)</span>
                       <span className="t-right">{metrics.pica.webhooks} hk</span>
                       <span className="t-right">${metrics.pica.cost.toFixed(3)}</span>
+                    </div>
+                    <div className="t-row">
+                      <span>Render (Cloud)</span>
+                      <span className="t-right">Active</span>
+                      <span className="t-right">$0.000</span>
                     </div>
                     <div className="t-row t-total">
                       <span>Total Expenditure</span>
