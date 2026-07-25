@@ -199,8 +199,16 @@ function LoginScreen({ onLogin }) {
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState('threats'); // 'threats', 'cyberdog', 'pitch'
+  const [themeMode, setThemeMode] = useState('opsera'); // 'opsera' or 'claude'
   const [cyberDogEmail, setCyberDogEmail] = useState('');
+
+  useEffect(() => {
+    if (themeMode === 'claude') {
+      document.body.classList.add('claude-theme');
+    } else {
+      document.body.classList.remove('claude-theme');
+    }
+  }, [themeMode]);
   const [isCyberDogActive, setIsCyberDogActive] = useState(false);
   const [cyberDogLogs, setCyberDogLogs] = useState([]);
   const [repoUrl, setRepoUrl] = useState('');
@@ -369,6 +377,30 @@ function App() {
         <div className="brand">
           <div className="brand-logo"></div>
           <span className="brand-name">CyberSentry</span>
+          
+          {/* Design Mode Radio Toggle */}
+          <div style={{ marginLeft: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.8rem', background: 'rgba(0,0,0,0.15)', padding: '0.3rem 0.8rem', borderRadius: '20px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', cursor: 'pointer', color: themeMode === 'opsera' ? 'var(--primary)' : 'var(--text-muted)' }}>
+              <input 
+                type="radio" 
+                name="theme" 
+                value="opsera" 
+                checked={themeMode === 'opsera'} 
+                onChange={() => setThemeMode('opsera')} 
+              />
+              Opsera Mode
+            </label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', cursor: 'pointer', color: themeMode === 'claude' ? '#D97757' : 'var(--text-muted)' }}>
+              <input 
+                type="radio" 
+                name="theme" 
+                value="claude" 
+                checked={themeMode === 'claude'} 
+                onChange={() => setThemeMode('claude')} 
+              />
+              Claude Mode 🎨
+            </label>
+          </div>
         </div>
         <div className="nav-tabs">
           <button 
