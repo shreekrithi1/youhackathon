@@ -207,6 +207,7 @@ function App() {
   
   const [isMonitoring, setIsMonitoring] = useState(false);
   const [mockMode, setMockMode] = useState(true);
+  const [scanIntervalSeconds, setScanIntervalSeconds] = useState(60); // Default 60 seconds
   
   const [logs, setLogs] = useState([]);
   const [defects, setDefects] = useState([]);
@@ -232,7 +233,7 @@ function App() {
 
   useEffect(() => {
     if (isMonitoring && isAuthenticated) {
-      const intervalMs = mockMode ? 60000 : 30 * 60 * 1000;
+      const intervalMs = mockMode ? (scanIntervalSeconds * 1000) : 30 * 60 * 1000;
       const intervalId = setInterval(() => {
         triggerVulnerabilityScan();
       }, intervalMs);
@@ -241,7 +242,7 @@ function App() {
     } else {
       if (monitorTimer) clearInterval(monitorTimer);
     }
-  }, [isMonitoring, mockMode, isAuthenticated]);
+  }, [isMonitoring, mockMode, scanIntervalSeconds, isAuthenticated]);
 
   useEffect(() => {
     if (!isAuthenticated) return;
@@ -413,8 +414,27 @@ function App() {
                       />
                       <span className="slider"></span>
                     </label>
-                    <span className="toggle-text">Mock Mode (1 min interval)</span>
+                    <span className="toggle-text">Mock Mode</span>
                   </div>
+
+                  <div style={{ marginTop: '1rem' }}>
+                    <label className="data-label">Monitoring Interval</label>
+                    <select 
+                      className="input-field" 
+                      value={scanIntervalSeconds} 
+                      onChange={(e) => setScanIntervalSeconds(Number(e.target.value))}
+                      disabled={isMonitoring}
+                      style={{ cursor: isMonitoring ? 'not-allowed' : 'pointer' }}
+                    >
+                      <option value={10}>10 Seconds (Fast Demo)</option>
+                      <option value={30}>30 Seconds</option>
+                      <option value={60}>1 Minute (Default)</option>
+                      <option value={300}>5 Minutes</option>
+                      <option value={900}>15 Minutes</option>
+                      <option value={3600}>1 Hour (Production)</option>
+                    </select>
+                  </div>
+
                   <button 
                     className={`btn-primary ${isMonitoring ? 'btn-danger' : ''}`}
                     onClick={toggleMonitor}
