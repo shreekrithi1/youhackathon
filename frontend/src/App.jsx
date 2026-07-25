@@ -65,27 +65,27 @@ function PitchDeck({ onClose }) {
             <h1 style={{ marginBottom: '3rem' }}><em>Opsera Agentic Security</em></h1>
             <div className="tech-grid" style={{ gap: '3rem', maxWidth: '1000px' }}>
               <div className="tech-item">
-                <img src="https://avatars.githubusercontent.com/u/127715456?s=200&v=4" alt="Agno" className="tech-logo" />
+                <img src="/logos/agno.svg" alt="Agno" className="tech-logo" />
                 <span className="tech-name">Agno (Phidata)</span>
                 <span className="tech-role">Multi-Agent Orchestrator</span>
               </div>
               <div className="tech-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/You.com_logo.svg" alt="You.com" className="tech-logo" />
+                <img src="/logos/you.svg" alt="You.com" className="tech-logo" />
                 <span className="tech-name">You.com API</span>
                 <span className="tech-role">Deep Web Threat Intel</span>
               </div>
               <div className="tech-item">
-                <img src="https://global.discourse-cdn.com/business7/uploads/llamaindex/original/1X/a2157a31b4fc6c8e329ebc03e2c65961e69d9551.png" alt="LlamaIndex" className="tech-logo" />
+                <img src="/logos/llama.svg" alt="LlamaIndex" className="tech-logo" />
                 <span className="tech-name">LlamaIndex</span>
                 <span className="tech-role">RAG & Context Engineering</span>
               </div>
               <div className="tech-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Repl.it_logo.svg" alt="Replit" className="tech-logo" />
+                <img src="/logos/replit.svg" alt="Replit" className="tech-logo" />
                 <span className="tech-name">Replit API</span>
                 <span className="tech-role">Secure Patch Sandbox</span>
               </div>
               <div className="tech-item">
-                <img src="https://img.icons8.com/nolan/200/api.png" alt="Pica" className="tech-logo" />
+                <img src="/logos/pica.svg" alt="Pica" className="tech-logo" />
                 <span className="tech-name">Pica API</span>
                 <span className="tech-role">Agentic Actions & Webhooks</span>
               </div>
