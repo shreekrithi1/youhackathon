@@ -64,8 +64,10 @@ function PitchDeck({ onClose }) {
 
         <section className="slide">
           <div className="slide-inner">
-            <h1>Security toolchains are <em>fragmented.</em></h1>
-            <p className="sub">Engineering Intelligence is lost. Vulnerabilities take weeks to orchestrate.</p>
+            <h1>Fixing security threats takes <em>too long.</em></h1>
+            <p className="sub" style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.6' }}>
+              Teams juggle too many disconnected tools. Important alerts get lost in the noise, and patching a single vulnerability can take weeks.
+            </p>
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
