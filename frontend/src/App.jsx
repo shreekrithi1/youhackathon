@@ -199,6 +199,7 @@ function LoginScreen({ onLogin }) {
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [activeTab, setActiveTab] = useState('threats'); // 'threats', 'cyberdog', 'pitch'
   const [themeMode, setThemeMode] = useState('opsera'); // 'opsera' or 'claude'
   const [cyberDogEmail, setCyberDogEmail] = useState('');
 
