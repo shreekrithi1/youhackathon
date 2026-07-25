@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function PitchDeck({ onClose }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 4;
+  const totalSlides = 5;
   const slideRef = useRef(null);
 
   useEffect(() => {
@@ -49,6 +49,19 @@ function PitchDeck({ onClose }) {
       <div className="pitch-hint">Tap or click to advance · left edge to go back</div>
 
       <div className="slides-container" ref={slideRef}>
+        <section className="slide slide-final">
+          <div className="slide-inner">
+            <h1 style={{ fontSize: '4.5rem', marginBottom: '1rem' }}>CyberSentry</h1>
+            <p className="sub" style={{ fontSize: '1.5rem', color: 'var(--text-muted)' }}>
+              By Narendra Darla
+            </p>
+          </div>
+          <div className="slide-footer">
+            <span className="footer-brand">Powered by Opsera</span>
+            <span className="footer-count">1 / 5</span>
+          </div>
+        </section>
+
         <section className="slide">
           <div className="slide-inner">
             <h1>Security toolchains are <em>fragmented.</em></h1>
@@ -56,13 +69,26 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">1 / 4</span>
+            <span className="footer-count">2 / 5</span>
           </div>
         </section>
 
         <section className="slide">
           <div className="slide-inner">
-            <h1 style={{ marginBottom: '3rem' }}><em>Opsera Agentic Security</em></h1>
+            <h1 style={{ marginBottom: '2rem' }}>The Solution: <em>Opsera Agentic Security</em></h1>
+            <p className="sub" style={{ maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
+              A unified, autonomous AI workflow that seamlessly correlates deep web threats, generates verifiable patches, and executes sandbox testing—all in one place.
+            </p>
+          </div>
+          <div className="slide-footer">
+            <span className="footer-brand">Powered by Opsera</span>
+            <span className="footer-count">3 / 5</span>
+          </div>
+        </section>
+
+        <section className="slide">
+          <div className="slide-inner">
+            <h1 style={{ marginBottom: '3rem' }}><em>Elite Tech Stack</em></h1>
             <div className="tech-grid" style={{ gap: '3rem', maxWidth: '1000px' }}>
               <div className="tech-item">
                 <img src="/logos/agno.svg" alt="Agno" className="tech-logo" />
@@ -93,20 +119,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">2 / 4</span>
-          </div>
-        </section>
-
-        <section className="slide slide-final">
-          <div className="slide-inner">
-            <p className="sub" style={{ fontSize: '1.25rem' }}>
-              <span style={{ display: 'block', fontSize: '1.5em', marginTop: '0.5rem', color: 'var(--text-muted)' }}>Architected by</span>
-              <strong style={{ fontSize: '4em', color: 'var(--primary)', display: 'block', marginTop: '1.5rem', lineHeight: '1.1' }}>Narendra Darla</strong>
-            </p>
-          </div>
-          <div className="slide-footer">
-            <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">3 / 4</span>
+            <span className="footer-count">4 / 5</span>
           </div>
         </section>
 
@@ -118,7 +131,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">4 / 4</span>
+            <span className="footer-count">5 / 5</span>
           </div>
         </section>
       </div>
