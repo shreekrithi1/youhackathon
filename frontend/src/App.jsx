@@ -70,12 +70,12 @@ function PitchDeck({ onClose }) {
                 <span className="tech-role">Multi-Agent Orchestrator</span>
               </div>
               <div className="tech-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/You.com_logo.svg" alt="You.com" className="tech-logo" style={{ background: '#fff', padding: '0.8rem', borderRadius: '12px' }} />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/You.com_logo.svg" alt="You.com" className="tech-logo" />
                 <span className="tech-name">You.com API</span>
                 <span className="tech-role">Deep Web Threat Intel</span>
               </div>
               <div className="tech-item">
-                <img src="https://global.discourse-cdn.com/business7/uploads/llamaindex/original/1X/a2157a31b4fc6c8e329ebc03e2c65961e69d9551.png" alt="LlamaIndex" className="tech-logo" style={{ background: '#fff', padding: '0.8rem', borderRadius: '12px' }} />
+                <img src="https://global.discourse-cdn.com/business7/uploads/llamaindex/original/1X/a2157a31b4fc6c8e329ebc03e2c65961e69d9551.png" alt="LlamaIndex" className="tech-logo" />
                 <span className="tech-name">LlamaIndex</span>
                 <span className="tech-role">RAG & Context Engineering</span>
               </div>
@@ -85,7 +85,7 @@ function PitchDeck({ onClose }) {
                 <span className="tech-role">Secure Patch Sandbox</span>
               </div>
               <div className="tech-item">
-                <img src="https://img.icons8.com/nolan/200/api.png" alt="Pica" className="tech-logo" style={{ filter: 'none' }} />
+                <img src="https://img.icons8.com/nolan/200/api.png" alt="Pica" className="tech-logo" />
                 <span className="tech-name">Pica API</span>
                 <span className="tech-role">Agentic Actions & Webhooks</span>
               </div>
