@@ -303,20 +303,23 @@ function App() {
   };
 
   const triggerVulnerabilityScan = async () => {
-    setLogs(prev => [...prev, `[THREAT_HUNTER] Initiating zero-day analysis...`]);
+    setLogs(prev => [...prev, `[EVENT_BUS:WEBHOOK] Received 3rd party dependency update event: 'express@4.18.2' -> 'express@4.19.2'`]);
+    setLogs(prev => [...prev, `[EDA_PIPELINE] Event ID: EVT-${Math.floor(Math.random() * 100000)} | Trigger: Auto-Dependency Change`]);
+    setLogs(prev => [...prev, `[THREAT_HUNTER] You.com Intel API evaluating vulnerability risk for new release...`]);
     
     setTimeout(() => {
       const newDefectId = `VULN-${Math.floor(Math.random() * 10000)}`;
-      setLogs(prev => [...prev, `[CRITICAL_ALERT] Threat found: ${newDefectId}`]);
+      setLogs(prev => [...prev, `[CRITICAL_ALERT] Threat correlated: Prototype Pollution (CVE-2026-1024)`]);
+      setLogs(prev => [...prev, `[AUTO_REMEDIATION] Event-driven MR automatically generated & verified in Replit Sandbox!`]);
       
       const newDefect = {
         id: newDefectId,
         cve: "CVE-2026-1024",
         package: "express",
         severity: "High",
-        status: "Pending Review",
-        rca: "The express library version < 4.19.2 is susceptible to prototype pollution via the query parser.",
-        resolution: "Patch Architect recommends upgrading express to version 4.19.2 and migrating any legacy body-parser middleware.",
+        status: "Auto-Patched (MR Created)",
+        rca: "Event Bus detected third-party library update. You.com API correlated CVE-2026-1024 prototype pollution risk in express < 4.19.2.",
+        resolution: "Event-Driven pipeline automatically generated a verified patch, executed Replit sandbox tests, and published Merge Request #42.",
         mrLink: "https://github.com/shreekrithi1/youhackathon/compare/main...patch/CVE-2026-1024?expand=1"
       };
       
@@ -325,8 +328,10 @@ function App() {
       setMetrics(m => ({
         ...m,
         you: { calls: m.you.calls + 1, cost: m.you.cost + 0.05 },
-        agno: { steps: m.agno.steps + 3, cost: m.agno.cost + 0.02 },
-        llama: { tokens: m.llama.tokens + 1024, cost: m.llama.cost + 0.03 }
+        agno: { steps: m.agno.steps + 4, cost: m.agno.cost + 0.02 },
+        llama: { tokens: m.llama.tokens + 1024, cost: m.llama.cost + 0.03 },
+        replit: { minutes: m.replit.minutes + 1, cost: m.replit.cost + 0.01 },
+        pica: { webhooks: m.pica.webhooks + 1, cost: m.pica.cost + 0.005 }
       }));
     }, 2000);
   };
