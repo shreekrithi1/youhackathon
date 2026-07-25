@@ -75,7 +75,7 @@ function PitchDeck({ onClose }) {
 
         <section className="slide">
           <div className="slide-inner">
-            <h1 style={{ marginBottom: '2rem' }}>The Solution: <em>Opsera Agentic Security</em></h1>
+            <h1 style={{ marginBottom: '2rem' }}>The Solution: <em>CyberSentry</em></h1>
             <p className="sub" style={{ maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
               A unified, autonomous AI workflow that seamlessly correlates deep web threats, generates verifiable patches, and executes sandbox testing—all in one place.
             </p>
@@ -353,7 +353,7 @@ function App() {
       <header className="top-nav">
         <div className="brand">
           <div className="brand-logo"></div>
-          <span className="brand-name">Opsera Agentic Security</span>
+          <span className="brand-name">CyberSentry</span>
         </div>
         <div className="nav-tabs">
           <button 
