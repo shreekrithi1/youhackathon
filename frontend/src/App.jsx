@@ -417,6 +417,12 @@ function App() {
             CyberDog Monitor
           </button>
           <button 
+            className={`tab-link ${activeTab === 'copilot' ? 'active' : ''}`}
+            onClick={() => setActiveTab('copilot')}
+          >
+            Security Copilot 🤖
+          </button>
+          <button 
             className="tab-link tab-pitch"
             onClick={() => setActiveTab('pitch')}
           >
@@ -426,6 +432,38 @@ function App() {
       </header>
 
       <main className="main-content">
+        {/* EXECUTIVE METRICS SUMMARY BAR */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.2rem', marginBottom: '1.5rem' }}>
+          <div className="panel data-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ fontSize: '1.8rem' }}>🛡️</span>
+            <div>
+              <span className="data-label">Security Health Index</span>
+              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary)' }}>98.4% Secure</div>
+            </div>
+          </div>
+          <div className="panel data-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ fontSize: '1.8rem' }}>⚡</span>
+            <div>
+              <span className="data-label">Mean Time to Remediate</span>
+              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: '#00D1B2' }}>2.4 Seconds</div>
+            </div>
+          </div>
+          <div className="panel data-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ fontSize: '1.8rem' }}>🤖</span>
+            <div>
+              <span className="data-label">Active Swarm Mesh</span>
+              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: '#9b51e0' }}>52 Agno Agents</div>
+            </div>
+          </div>
+          <div className="panel data-panel" style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ fontSize: '1.8rem' }}>✅</span>
+            <div>
+              <span className="data-label">Auto-Patched MRs</span>
+              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: '#FFB020' }}>14 Merged</div>
+            </div>
+          </div>
+        </div>
+
         {activeTab === 'threats' && (
           <React.Fragment>
             <div className="dashboard-grid">
@@ -677,6 +715,28 @@ function App() {
                       </div>
                     ))
                   )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'copilot' && (
+          <div className="copilot-container">
+            <div className="panel data-panel">
+              <div className="panel-header" style={{ borderBottom: '1px solid var(--border-light)', paddingBottom: '1rem', marginBottom: '1rem' }}>
+                <h3>🤖 CyberSentry AI Copilot (Powered by You.com & Agno)</h3>
+              </div>
+              <div className="panel-body">
+                <p className="text-muted" style={{ marginBottom: '1.5rem' }}>Ask CyberSentry Copilot anything about your repository AST, active vulnerabilities, or dark web threat intel.</p>
+                <div className="terminal-window" style={{ minHeight: '350px', marginBottom: '1.5rem', padding: '1rem' }}>
+                  <div className="log-line" style={{ color: 'var(--primary)' }}>&gt; [COPILOT_INIT] Security Copilot ready. Connected to You.com Threat Search and LlamaIndex RAG.</div>
+                  <div className="log-line">&gt; User: What is our risk profile for express 4.18.2?</div>
+                  <div className="log-line" style={{ color: '#00D1B2' }}>&gt; Copilot: High Risk. Express &lt; 4.19.2 contains CVE-2026-1024 (Prototype Pollution). CyberSentry event bus has already generated MR #42 and verified zero regressions in Replit sandbox.</div>
+                </div>
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                  <input type="text" className="input-field" placeholder="Ask AI Copilot (e.g. Analyze AST impact for CVE-2026-1024...)" style={{ flex: 1 }} />
+                  <button className="btn-primary">Query Copilot</button>
                 </div>
               </div>
             </div>
