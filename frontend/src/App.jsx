@@ -226,8 +226,8 @@ function LoginScreen({ onLogin }) {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1 className="auth-brand">Opsera</h1>
-        <p className="auth-subtitle">Agentic DevSecOps Orchestrator</p>
+        <h1 className="auth-brand">CyberSentry</h1>
+        <p className="auth-subtitle">Autonomous Agentic Security Orchestrator</p>
         
         <div className="auth-form">
           <label>Target Repository</label>
