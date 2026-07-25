@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function PitchDeck({ onClose }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 5;
+  const totalSlides = 6;
   const slideRef = useRef(null);
 
   useEffect(() => {
@@ -84,7 +84,78 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">3 / 5</span>
+            <span className="footer-count">3 / 6</span>
+          </div>
+        </section>
+
+        {/* NEW: Architecture Diagram Slide */}
+        <section className="slide">
+          <div className="slide-inner" style={{ maxWidth: '1100px' }}>
+            <h1 style={{ marginBottom: '1rem', fontSize: '2.5rem' }}><em>50+ Swarm Agent Architecture</em></h1>
+            <p className="sub" style={{ marginBottom: '1.5rem', fontSize: '1rem' }}>Concurrent Agno Agent Mesh with Real-Time Telemetry & Fail-Safe SME Validation</p>
+            
+            <div className="arch-diagram-container">
+              <div className="arch-grid">
+                {/* Cluster 1 */}
+                <div className="arch-cluster cluster-purple">
+                  <div className="cluster-header">🔍 Ingestion & Intel Swarm (15 Agents)</div>
+                  <div className="cluster-body">
+                    <span className="agent-badge">DarkWeb Sniffer #1-5</span>
+                    <span className="agent-badge">CVE Parser #1-4</span>
+                    <span className="agent-badge">Git Target Crawler #1-6</span>
+                  </div>
+                  <div className="cluster-tech">Powered by You.com API</div>
+                </div>
+
+                <div className="arch-arrow">➔</div>
+
+                {/* Cluster 2 */}
+                <div className="arch-cluster cluster-teal">
+                  <div className="cluster-header">🧠 Context & RAG Mesh (15 Agents)</div>
+                  <div className="cluster-body">
+                    <span className="agent-badge">AST Vectorizer #1-5</span>
+                    <span className="agent-badge">LlamaIndex RAG #1-5</span>
+                    <span className="agent-badge">Dependency Mapper #1-5</span>
+                  </div>
+                  <div className="cluster-tech">Powered by LlamaIndex + Agno</div>
+                </div>
+
+                <div className="arch-arrow">➔</div>
+
+                {/* Cluster 3 */}
+                <div className="arch-cluster cluster-coral">
+                  <div className="cluster-header">🛠️ Patch & Sandbox Swarm (15 Agents)</div>
+                  <div className="cluster-body">
+                    <span className="agent-badge">Zero-Day Repairer #1-5</span>
+                    <span className="agent-badge">Replit Sandbox Tester #1-5</span>
+                    <span className="agent-badge">Regression Verifier #1-5</span>
+                  </div>
+                  <div className="cluster-tech">Powered by Replit API</div>
+                </div>
+
+                <div className="arch-arrow">➔</div>
+
+                {/* Cluster 4 */}
+                <div className="arch-cluster cluster-blue">
+                  <div className="cluster-header">⚡ Action & PR Dispatcher (5+ Agents)</div>
+                  <div className="cluster-body">
+                    <span className="agent-badge">Pica Action Dispatcher</span>
+                    <span className="agent-badge">GitHub PR Bot</span>
+                    <span className="agent-badge">SME Intervention Guard</span>
+                  </div>
+                  <div className="cluster-tech">Powered by Pica Actions</div>
+                </div>
+              </div>
+
+              <div className="arch-status-bar">
+                <span className="status-live-dot"></span>
+                <span>Active Swarm Status: <strong>52 Autonomous Agno Agents Running Simultaneously</strong></span>
+              </div>
+            </div>
+          </div>
+          <div className="slide-footer">
+            <span className="footer-brand">Powered by Opsera</span>
+            <span className="footer-count">4 / 6</span>
           </div>
         </section>
 
@@ -121,7 +192,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">4 / 5</span>
+            <span className="footer-count">5 / 6</span>
           </div>
         </section>
 
@@ -133,7 +204,7 @@ function PitchDeck({ onClose }) {
           </div>
           <div className="slide-footer">
             <span className="footer-brand">Powered by Opsera</span>
-            <span className="footer-count">5 / 5</span>
+            <span className="footer-count">6 / 6</span>
           </div>
         </section>
       </div>
